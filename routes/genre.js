@@ -1,0 +1,15 @@
+const express = require('express');
+const router = express.Router();
+const Book = require('../model/books');
+
+router.get('/tur/:genre', async (req,res) => {
+    try {
+        const genre = req.params.genre.toLowerCase();
+        const booksByGenre = await Book.find({genre});
+        res.status(200).json(booksByGenre);
+    } catch(err){
+        res.status(500).send('İstenilen türde kitaplar bulunmuyor.');
+    }
+});
+
+module.exports = router;

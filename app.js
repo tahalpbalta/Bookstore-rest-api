@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const book = require('./routes/book');
 const author = require('./routes/author');
 const year = require('./routes/year');
+const genre = require('./routes/genre');
 const app = express();
 
 const PORT = 8000;
@@ -22,6 +23,7 @@ app.use(express.json());
 app.use('/', book);
 app.use('/', author);
 app.use('/', year);
+app.use('/', genre);
 
 app.listen(PORT, () => {
     console.log(`Server is running on ${PORT}.`);
