@@ -3,7 +3,8 @@ const router = express.Router();
 const Book = require('../model/books');
 const Author = require('../model/author');
 
-router.post('/yazar-ekle', async (req,res) => {
+
+router.post('/yazar-ekle',async (req,res,) => {
     try{
         const { name, birthdate, nationality } = req.body;
         const newAuthor = new Author({name, birthdate, nationality});
@@ -23,7 +24,7 @@ router.get('/yazarlar', async (req,res) => {
     }
 });
 
-router.get('/yazar/:author', async (req, res) => {
+router.get('/yazar/:author',  async (req, res) => {
     try {
       const authorName = req.params.author.toLowerCase();
       const author = await Author.findOne({ name: authorName });

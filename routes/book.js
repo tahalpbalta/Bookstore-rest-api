@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Book = require('../model/books');
 
-router.post('/kitap-ekle', async (req,res) =>{
+
+router.post('/kitap-ekle',  async (req,res) =>{
     try {
         const {title, author, genre, year_of_pub} = req.body;
         const  newBook = new Book({title, author, genre, year_of_pub});

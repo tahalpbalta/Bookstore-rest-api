@@ -6,6 +6,8 @@ const author = require('./routes/author');
 const year = require('./routes/year');
 const genre = require('./routes/genre');
 const recommend = require('./routes/recommend');
+const auth = require('./routes/auth');
+const authenticate = require('./middleware/authenticate');
 
 const app = express();
 
@@ -28,6 +30,8 @@ app.use('/', author);
 app.use('/', year);
 app.use('/', genre);
 app.use('/', recommend);
+app.use('/', auth);
+
 
 app.listen(PORT, () => {
     console.log(`Server is running on ${PORT}.`);
